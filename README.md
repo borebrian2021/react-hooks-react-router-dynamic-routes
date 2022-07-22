@@ -86,14 +86,13 @@ can write our application so one component — the `List` of videos — renders
 using a Route that matches the path `/videos`. Then, within the `List`, we can
 nest a second Route that renders the appropriate `Item` when the path matches
 `/videos/:videoId`.
-
 Let's build this out!
 
 ## Rendering Our List
-
 To begin, let's take a look at our starter code. First, we have our `App`
 component. `App` has some dummy movie data provided in state for us (normally,
 we would likely be fetching this info).
+
 
 ```jsx
 const [movies, setMovies] = useState({
@@ -195,9 +194,10 @@ To start, let's create our `MovieShow` component. Later on, we will see that
 this component will need to dynamically figure out which movie it should render.
 
 ```jsx
+
+
 // ./src/components/MovieShow.js
 import React from "react";
-
 function MovieShow() {
   return (
     <div>
@@ -223,7 +223,6 @@ import { Route, useRouteMatch } from "react-router-dom";
 import MoviesList from "./MoviesList";
 // import the MovieShow component
 import MovieShow from "./MovieShow";
-
 function MoviesPage({ movies }) {
   // useRouteMatch returns a special object with information about
   // the currently matched route
@@ -270,7 +269,6 @@ function MoviesList({ movies }) {
       <Link to={`/movies/${movieID}`}>{movies[movieID].title}</Link>
     </li>
   ));
-
   return <ul>{renderMovies}</ul>;
 }
 
